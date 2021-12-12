@@ -19,10 +19,10 @@ http.createServer(function (req, res)
 //     app.listen(PORT,function(){
 //         console.log('Listening');
 //     });
-if (req.url=="/")
-    {
-        res.write("Hi");
-    }
+// if (req.url=="/")
+//     {
+         res.end("Hi");
+//     }
 // app.use(bodyParser.urlencoded({extended: true})); 
 
 // // app.post('/info',function(req,res){
