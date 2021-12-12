@@ -15,9 +15,8 @@ var port = process.env.PORT || 3000;
 //import * as popup from 'node-popup/src/index.ts';
 //const popup = require('node-popup');  
 
-http.createServer(function (req, res) 
-{
-app.listen(3000,function(){
+
+app.listen(port,function(){
     console.log('listening on 3000');
 });
 
@@ -178,24 +177,3 @@ async function populate(collection,res){
     }
 }
 
-//     console.log("attempting alert");
-//     //popup.alert("hello");
-//     //send in pop up that then closes 
-
-
-// //TODO: stop repeating loading 
-// app.post('/info', function(req,res){
-//     console.log("hfwfwf");
-
-// app.get('/',function(req,res){
-//     //returns all the information and is put into arrays
-//     const cursor = collection.find().toArray().then(result => {
-//         console.log(result)
-//         res.redirect('/')
-//     })
-//     .catch(error => console.error(error));
-// })
-
-//db.close();
-
-}).listen(port);
