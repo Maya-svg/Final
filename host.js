@@ -11,7 +11,10 @@ const MongoClient = require('mongodb').MongoClient;
 const url = "mongodb+srv://Harnaljia:Harnaljia@band.huo1y.mongodb.net/Band?retryWrites=true&w=majority";
 var PORT = process.env.PORT || 3000;
 
-app.set("port",PORT);
+app.listen(process.env.PORT || 3000, function(){
+  console.log("listening");
+});
+
 //const popup = require('node-popup/dist/cjs.js');
 //import * as popup from 'node-popup/src/index.ts';
 //const popup = require('node-popup');  
