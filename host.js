@@ -44,15 +44,15 @@ MongoClient.connect(url, { useUnifiedTopology: true }, function(err, db) {
     
     var dbo = db.db("Info");
     var collection = dbo.collection('schedule');
-    
+
     console.log("connected to Mongo");
 
-//     app.get('/',function(req,res){
-//         console.log("in get");
-//         populate(collection,res);
-//         //res.sendFile('/Users/harnaljia/desktop/Final' + '/scheduleView.html');
+    app.get('/',function(req,res){
+        console.log("In get request");
+        populate(collection,res);
+        //res.sendFile('/Users/harnaljia/desktop/Final' + '/scheduleView.html');
        
-//     });
+    });
     
 //     app.post('/process',function(req,res){ //telling server what to do when it gets to where we want it to be. 
 //         console.log("opening form");
