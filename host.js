@@ -157,27 +157,27 @@ MongoClient.connect(url, { useUnifiedTopology: true }, function(err, db) {
 //     }
 // }
 
-// async function populate(collection,res){
-//     week = ["Sunday", "Monday","Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
-//     try{
-//         // for(i=0;i<week.length;i++){
-//         //     console.log(week[i]);
-//         // }
-//         collection.find({"Day": "Monday"}).toArray(function(err,results){
-//             if (err) {
-//                 console.log("Error: " + err);
-//             } 
-//             else {
-//                 console.log("hellooooooo");
-//                 // TODO: TRICKY CAUSE I DONT KNOW WHERE MONDAY WILL BE
-//                 res.render('index.ejs', { label1: results}); 
-//                 res.end();
-//             }
-//         });
-//     }catch(err){
-//         console.log(err);
-//     }
-// }
+async function populate(collection,res){
+    week = ["Sunday", "Monday","Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+    try{
+        // for(i=0;i<week.length;i++){
+        //     console.log(week[i]);
+        // }
+        collection.find({"Day": "Monday"}).toArray(function(err,results){
+            if (err) {
+                console.log("Error: " + err);
+            } 
+            else {
+                console.log("hellooooooo");
+                // TODO: TRICKY CAUSE I DONT KNOW WHERE MONDAY WILL BE
+                res.render('index.ejs', { label1: results}); 
+                res.end();
+            }
+        });
+    }catch(err){
+        console.log(err);
+    }
+}
 
 //     console.log("attempting alert");
 //     //popup.alert("hello");
