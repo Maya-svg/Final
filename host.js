@@ -14,7 +14,8 @@ var PORT = process.env.PORT || 3000;
 //const popup = require('node-popup/dist/cjs.js');
 //import * as popup from 'node-popup/src/index.ts';
 //const popup = require('node-popup');  
-
+http.createServer(function (req, res) 
+{
 app.listen(PORT,function(){
     console.log('Listening');
 });
@@ -170,6 +171,7 @@ async function populate(collection,res){
             else {
                 console.log("hellooooooo");
                 // TODO: TRICKY CAUSE I DONT KNOW WHERE MONDAY WILL BE
+                //res.render('index.ejs', { label1: results}); 
                 res.sendFile('/scheduleView.html');
                 res.end();
             }
@@ -198,3 +200,4 @@ async function populate(collection,res){
 // })
 
 //db.close();
+}).listen(PORT);
