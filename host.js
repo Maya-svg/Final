@@ -16,7 +16,7 @@ var PORT = process.env.PORT || 3000;
 //const popup = require('node-popup');  
 
 app.listen(PORT,function(){
-    console.log('listening on 3000');
+    console.log('Listening');
 });
 
 // app.use(bodyParser.urlencoded({extended: true})); 
@@ -39,10 +39,13 @@ app.listen(PORT,function(){
 // //     console.log("Done");
 // // });
 
-// MongoClient.connect(url, { useUnifiedTopology: true }, function(err, db) {
-//     if(err) { return console.log(err); return;}
-//     var dbo = db.db("Info");
-//     var collection = dbo.collection('schedule');
+MongoClient.connect(url, { useUnifiedTopology: true }, function(err, db) {
+    if(err) { return console.log(err); return;}
+    
+    var dbo = db.db("Info");
+    var collection = dbo.collection('schedule');
+    
+    console.log("connected to Mongo");
 
 //     app.get('/',function(req,res){
 //         console.log("in get");
@@ -65,7 +68,7 @@ app.listen(PORT,function(){
 //         //TDO: GOTTA GO back to the original page
 //         //res.render('index.ejs', {}); 
 //     });
-// });
+});
 
 // async function processData(req,collection){
 //     try{
