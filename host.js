@@ -16,10 +16,13 @@ var PORT = process.env.PORT || 3000;
 //const popup = require('node-popup');  
 http.createServer(function (req, res) 
 {
-    app.listen(PORT,function(){
-        console.log('Listening');
-    });
-
+//     app.listen(PORT,function(){
+//         console.log('Listening');
+//     });
+if (req.url=="/")
+    {
+        res.write("Hi");
+    }
 // app.use(bodyParser.urlencoded({extended: true})); 
 
 // // app.post('/info',function(req,res){
