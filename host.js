@@ -170,7 +170,7 @@ async function populate(collection,res){
             else {
                 console.log("hellooooooo");
                 // TODO: TRICKY CAUSE I DONT KNOW WHERE MONDAY WILL BE
-                res.render('index.ejs', { label1: results}); 
+                res.sendFile('/scheduleView.html');
                 res.end();
             }
         });
