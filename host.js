@@ -16,9 +16,9 @@ var PORT = process.env.PORT || 3000;
 //const popup = require('node-popup');  
 http.createServer(function (req, res) 
 {
-app.listen(PORT,function(){
-    console.log('Listening');
-});
+    app.listen(PORT,function(){
+        console.log('Listening');
+    });
 
 // app.use(bodyParser.urlencoded({extended: true})); 
 
@@ -40,20 +40,20 @@ app.listen(PORT,function(){
 // //     console.log("Done");
 // // });
 
-MongoClient.connect(url, { useUnifiedTopology: true }, function(err, db) {
-    if(err) { return console.log(err); return;}
+// MongoClient.connect(url, { useUnifiedTopology: true }, function(err, db) {
+//     if(err) { return console.log(err); return;}
     
-    var dbo = db.db("Info");
-    var collection = dbo.collection('schedule');
+//     var dbo = db.db("Info");
+//     var collection = dbo.collection('schedule');
 
-    console.log("connected to Mongo");
+//     console.log("connected to Mongo");
 
-    app.get('/',function(req,res){
-        console.log("In get request");
-        populate(collection,res);
-        //res.sendFile('/Users/harnaljia/desktop/Final' + '/scheduleView.html');
+//     app.get('/',function(req,res){
+//         console.log("In get request");
+//         populate(collection,res);
+//         //res.sendFile('/Users/harnaljia/desktop/Final' + '/scheduleView.html');
        
-    });
+//     });
     
 //     app.post('/process',function(req,res){ //telling server what to do when it gets to where we want it to be. 
 //         console.log("opening form");
@@ -158,28 +158,28 @@ MongoClient.connect(url, { useUnifiedTopology: true }, function(err, db) {
 //     }
 // }
 
-async function populate(collection,res){
-    week = ["Sunday", "Monday","Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
-    try{
-        // for(i=0;i<week.length;i++){
-        //     console.log(week[i]);
-        // }
-        collection.find({"Day": "Monday"}).toArray(function(err,results){
-            if (err) {
-                console.log("Error: " + err);
-            } 
-            else {
-                console.log("hellooooooo");
-                // TODO: TRICKY CAUSE I DONT KNOW WHERE MONDAY WILL BE
-                //res.render('index.ejs', { label1: results}); 
-                res.sendFile('/scheduleView.html');
-                res.end();
-            }
-        });
-    }catch(err){
-        console.log(err);
-    }
-}
+// async function populate(collection,res){
+//     week = ["Sunday", "Monday","Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+//     try{
+//         // for(i=0;i<week.length;i++){
+//         //     console.log(week[i]);
+//         // }
+//         collection.find({"Day": "Monday"}).toArray(function(err,results){
+//             if (err) {
+//                 console.log("Error: " + err);
+//             } 
+//             else {
+//                 console.log("hellooooooo");
+//                 // TODO: TRICKY CAUSE I DONT KNOW WHERE MONDAY WILL BE
+//                 //res.render('index.ejs', { label1: results}); 
+//                 res.sendFile('/scheduleView.html');
+//                 res.end();
+//             }
+//         });
+//     }catch(err){
+//         console.log(err);
+//     }
+// }
 
 //     console.log("attempting alert");
 //     //popup.alert("hello");
