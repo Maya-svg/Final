@@ -14,7 +14,7 @@ var port = process.env.PORT || 3000;
 
 app.get('/',function(req,res){
 	res.send("Hi");
-	res.sendFile(path.join(Final + '/scheduleView.html'));
+	res.render('index'));
 });
 
 app.listen(port, 
