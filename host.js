@@ -17,8 +17,15 @@ http.createServer(function (req, res) {
   app.listen(port);
   console.log("Listening");
   
-  res.write ("Success!  This app is deployed online");
-  res.end();
+  fs.readFile('./scheduleView.html', function(err, data) {
+    if (err) {
+      res.writeHead(404, {'Content-Type': 'text/html'});
+      return res.end("404 Not Found");
+    } 
+    res.writeHead(200, {'Content-Type': 'text/html'});
+    res.write("INSIDE");
+    return res.end();
+  });
 }).listen(port);
 
 
