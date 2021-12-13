@@ -14,25 +14,20 @@ var port = process.env.PORT || 3000;
 http.createServer(function (req, res) {
   console.log("Server created");
   
-  app.listen(port,function(){
-    console.log('Listening');
+  app.listen(port);
+  console.log("Listening");
+  
+  var q = url.parse(req.url, true);
+ 
+  fs.readFile('scheduleView.html', function(err, data) {
+    if (err) {
+      res.writeHead(404, {'Content-Type': 'text/html'});
+      return res.end("404 Not Found");
+    } 
+    res.writeHead(200, {'Content-Type': 'text/html'});
+    res.write(data);
+    return res.end();
   });
-  
-  MongoClient.connect(url, { useUnifiedTopology: true }, function(err, db){
-    if(err) { return console.log(err); return;}
-    
-    var dbo = db.db("Info");
-    var collection = dbo.collection('schedule');
-
-    console.log("connected to Mongo");
-
-    app.get('/',function(req,res){
-        console.log("In get request");
-        populate(collection,res);
-        res.write ("inside get function");
-    }); 
-   });
-  
    res.write ("Success!  This app is deployed online");
    res.end();
 }).listen(port);
