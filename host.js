@@ -13,7 +13,8 @@ const url = "mongodb+srv://Harnaljia:Harnaljia@band.huo1y.mongodb.net/Band?retry
 var port = process.env.PORT || 3000;
 
 app.get('/',function(req,res){
-    res.send("Hi");
+	res.send("Hi");
+	res.sendFile('/scheduleView.html');
 });
 
 app.listen(port, 
