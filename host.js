@@ -11,11 +11,13 @@ const MongoClient = require('mongodb').MongoClient;
 const url = "mongodb+srv://Harnaljia:Harnaljia@band.huo1y.mongodb.net/Band?retryWrites=true&w=majority";
 var port = process.env.PORT || 3000;
 
-console.log("This goes to the console window");
 http.createServer(function (req, res) {
+  console.log("Server created");
   
-  res.writeHead(200, {'Content-Type': 'text/html'});
-   res.write("<h2>Hello World</h2>");
+  app.listen(port,function(){
+    console.log('Listening');
+  });
+  
    res.write ("Success!  This app is deployed online");
    res.end();
   
