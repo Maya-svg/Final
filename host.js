@@ -4,7 +4,7 @@ var qs = require('querystring');
 
 const express = require('express');
 const app = express();
-app.use(express.static("public"));
+
 const bodyParser = require('body-parser');
 app.set('view engine','ejs');
 
